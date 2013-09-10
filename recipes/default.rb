@@ -31,7 +31,7 @@ bash "Building Commons..." do
   cwd "/mnt/www/html"
   code <<-EOH
     git clone --branch 7.x-3.x http://git.drupal.org/project/commons.git #{project}
-    cd #{project} && drush make -y build-commons-dev.make
+    cd #{project} && drush make -y build-commons.make
   EOH
   notifies :run, "bash[Installing Commons...]", :immediately
   not_if "test -d /mnt/www/html/#{project}"
